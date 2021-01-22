@@ -9,6 +9,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 
 /*****************************************
  * PUBLIC CLASS WEATHERCONDITIONS
@@ -17,18 +19,14 @@ import java.net.URLEncoder;
  ****************************************/
 public class WeatherConditions
 {
-    /*private double temp = 286.99;
-    private int pressure = 1013;
-    private int humidity = 53;
-    private double temp_min = 286.45;
-    private double temp_max = 287.55;*/
-
     /*******************************************
      * PRIVATE MEMBERS
      ******************************************/
     private int id = 0;
     private String name = "";
-    private int main = 1;
+
+    Map<String, Float> main;
+
     private String url = "api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=39d90d5929e83265f2f1669ea3752ed3";
     private String charset = "UTF-8";
     private String param1 = "";
@@ -46,7 +44,6 @@ public class WeatherConditions
     {
         this.id = id;
         this.name = name;
-        this.main = main;
     }
 
     /*******************************************
@@ -60,12 +57,21 @@ public class WeatherConditions
         return name;
     }
 
-    public int getMain() {
+    public Gson getG() {
+        return g;
+    }
+
+    public Map<String, Float> getMain() {
         return main;
     }
 
-    public Gson getG() {
-        return g;
+    /*********************************************
+     * ACCESSORS
+     * @param main
+     ********************************************/
+    public void setMain(Map<String, Float> main)
+    {
+        this.main = main;
     }
 
     /*******************************************

@@ -1,5 +1,7 @@
 package openWeather;
 
+import com.google.gson.Gson;
+
 import java.io.UnsupportedEncodingException;
 
 public class Main
@@ -11,5 +13,10 @@ public class Main
     WeatherConditions wc = new WeatherConditions(id, name, main);
 
     public Main() throws UnsupportedEncodingException {
+    }
+
+    public static void main (String[] args)
+    {
+        Gson gson = new Gson();
     }
 }
