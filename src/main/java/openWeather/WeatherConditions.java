@@ -63,18 +63,6 @@ public class WeatherConditions
         return g;
     }
 
-    public Map<String, Float> getMain() {
-        return main;
-    }
-
-    /*********************************************
-     * MUTATORS
-     * @param main
-     ********************************************/
-    public void setMain(Map<String, Float> main)
-    {
-        this.main = main;
-    }
 
     public void setId(int id) {
         this.id = id;

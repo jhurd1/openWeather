@@ -25,7 +25,8 @@ public class Main
 
         try
         {
-            String query = String.format("?q=London,uk&APPID=",
+            // ?q=London,uk&APPID=
+            String query = String.format("?q=%s&apiKey=%s",
                     URLEncoder.encode(city, charset),
                     URLEncoder.encode(key, charset));
             URLConnection connection = null;
