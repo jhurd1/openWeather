@@ -1,6 +1,7 @@
 package openWeather;
 
 import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,14 +20,15 @@ import java.util.Map;
  ****************************************/
 public class WeatherConditions
 {
+
     /*******************************************
      * PRIVATE MEMBERS
      ******************************************/
-    private int id = 0;
-    private String name = "";
+    private int id;
+    private String name;
 
-    Map<String, Float> main;
-
+    Map<String, Float> measures;
+    @SerializedName("main")
     private String url = "api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=39d90d5929e83265f2f1669ea3752ed3";
     private String charset = "UTF-8";
     private String param1 = "";
@@ -66,12 +68,16 @@ public class WeatherConditions
     }
 
     /*********************************************
-     * ACCESSORS
+     * MUTATORS
      * @param main
      ********************************************/
     public void setMain(Map<String, Float> main)
     {
         this.main = main;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     /*******************************************
