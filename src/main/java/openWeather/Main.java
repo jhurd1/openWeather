@@ -1,6 +1,7 @@
 package openWeather;
 
 import com.google.gson.Gson;
+import com.mashape.unirest.http.exceptions.UnirestException;
 
 import java.io.*;
 import java.net.URL;
@@ -21,7 +22,7 @@ public class Main
     static Map<String, Float> main = new HashMap<String, Float>;
 */
 
-    public static void main (String[] args) throws IOException {
+    public static void main (String[] args) throws IOException, UnirestException {
         System.out.print("Enter city name: ");
         Scanner scanner = new Scanner(System.in);
         WeatherConditions w = new WeatherConditions();
@@ -29,12 +30,12 @@ public class Main
         name = scanner.next();
         Gson gson = new Gson();
         w = gson.fromJson(w.weatherUnderground(), WeatherConditions.class); //deserialized string to object
-
-
+        w.getTheWeatherFromAPI();
        /* try w.getId() + w.getName();
         {
             // ?q=London,uk&APPID=
-            String query = String.format("?q=%s&apiKey=%s",
+            String query = String.format("?q=%s&apiKey=%s", // this format() directs the IDE to replace %s with a string
+             //variable (a city, for example)
                     URLEncoder.encode(city, charset),
                     URLEncoder.encode(key, charset));
             URLConnection connection = null;
