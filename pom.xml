@@ -7,7 +7,11 @@
     <groupId>org.example</groupId>
     <artifactId>openWeather</artifactId>
     <version>1.0-SNAPSHOT</version>
+<<<<<<< HEAD
 // second test with merge conflict; this one from the IDE local
+=======
+// second test with merge conflict, this one from the remote
+>>>>>>> f8daecfd4d3eda8f0047a30a473739b3279bdd0b
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
